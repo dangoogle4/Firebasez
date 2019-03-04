@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> รายชื่อหอพัก </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list *ngFor="let item of usertours">
+  <ion-item lines="inset" button [routerLink]="['/firebase-s','0']">
+    <ion-label>
+      {{ item.username }}
+      <p>{{ item.password }} 
+        {{item.phone}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+
