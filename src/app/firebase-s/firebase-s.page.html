@@ -13,10 +13,13 @@
         <ion-input required type="text" placeholder="ชื่อ-นามสกุล" [(ngModel)]="booking.name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input required type="text" placeholder="ที่อยู่ปัจจุบันของท่าน" [(ngModel)]="booking.hotelid"></ion-input>
+        <ion-input required type="number" placeholder="Priority" [(ngModel)]="booking.phone"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input required type="number" placeholder="Priority" [(ngModel)]="booking.phone"></ion-input>
+        <ion-input required type="number" placeholder="Priority" [(ngModel)]="booking.hotelid"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input required type="number" placeholder="Priority" [(ngModel)]="booking.guest"></ion-input>
       </ion-item>
     </ion-list>
     <ion-button expand="full" (click)="saveBooking()">บันทึกข้อมูล</ion-button>

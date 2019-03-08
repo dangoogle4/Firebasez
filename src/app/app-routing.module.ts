@@ -17,7 +17,9 @@ const routes: Routes = [
   },
   { path: 'firebase-s', loadChildren: './firebase-s/firebase-s.module#FirebaseSPageModule' },
   { path: 'firebase-s/:id', loadChildren: './firebase-s/firebase-s.module#FirebaseSPageModule' },
-  { path: 'user-detail', loadChildren: './user-detail/user-detail.module#UserDetailPageModule' }
+  { path: 'user-detail', loadChildren: './user-detail/user-detail.module#UserDetailPageModule' },
+  { path: 'hotel-detail', loadChildren: './hotel-detail/hotel-detail.module#HotelDetailPageModule' },
+  { path: 'hotel-detail/:id', loadChildren: './hotel-detail/hotel-detail.module#HotelDetailPageModule' }
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ export interface Booking {
   name : String;
   phone: String;
   hotelid: String;
+  guest: String;
   
   
 }

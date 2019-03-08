@@ -1,4 +1,4 @@
-import { UsertourService, tour } from './../usertour.service';
+import { UsertourService, hotel } from './../usertour.service';
 import { Component, OnInit } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -9,7 +9,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class UserDetailPage implements OnInit {
 
-  usertours : tour[];
+  usertours : hotel[];
 
   constructor( private UsertourService : UsertourService) { }
 

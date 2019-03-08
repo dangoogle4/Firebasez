@@ -1,5 +1,5 @@
 import { BookingService, Booking } from './../booking.service';
-import { tour } from './../usertour.service';
+import {  UsertourService } from './../usertour.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
@@ -13,20 +13,21 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class FirebaseSPage implements OnInit {
 
   booking: Booking = {
-    name : 'String',
-    phone: 'String',
-    hotelid: 'String'
+    name : '',
+    phone: '',
+    hotelid: '',
+    guest:'',
   };
  
   todoId = null;
  
-  constructor(private route: ActivatedRoute, private nav: NavController,private bookservice: BookingService, private loadingController: LoadingController) { }
+  constructor(private route: ActivatedRoute, private nav: NavController,private bookservice: BookingService, private loadingController: LoadingController,private tourservice: UsertourService) { }
  
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
     console.log(this.todoId);
     if (this.todoId)  {
-      //this.loadTodo();
+      this.booking.hotelid = this.todoId;
     }
   }
  
@@ -40,15 +41,12 @@ export class FirebaseSPage implements OnInit {
     await loading.present();
  
     if (this.todoId) {
-      this.bookservice.updateBooking(this.booking, this.todoId).then(() => {
+    this.bookservice.addBooking(this.booking).then(() => {
         loading.dismiss();
-        //this.nav.goBack('user');
+        this.nav.goBack();
       });
-    } else {
-      this.bookservice.addBooking(this.booking).then(() => {
-        loading.dismiss();
-        //this.nav.goBack('home');
-      });
+      
+      this.tourservice.incrementAmount(this.todoId);
     }
   }
 
